@@ -1,0 +1,265 @@
+Class 01
+
+3V's --> Volume, Velocity & Variety
+Variety-->Structured
+          Semi-structured
+          Unstructured
+Virtualization-can run multiple machines on 1
+RDBMS - only for tabular form
+Non-RDBMS - can store semi-structured, unstructured & highly variable structured data
+N0Sql- language/framework to query data from non-relational db
+CAP Theorem- Consistency Availability PartitionTolerance
+BASE- Basically Available Soft-State Eventual Consistency
+__________________________________________
+Class 02
+
+Resources>CPU
+         >RAM
+         >Storage (HDD)
+         >Network
+CPU--> frequency 2.2ghz
+min needed 64bit, 2 Core
+RAM--> refresh rate
+Storage--> IoPs (InputOutputPerSecond)
+min for NN
+64 GB DDR3 with ECC (Error Correction Code)
+min for DN
+8 GB DDR3 with ECC
+Block Size of Linux ?
+4kb for 32bit
+8kb for 64bit
+RAID (Redundant Array of Independent Disks)
+RAID -0 --> Striping (Parallel)
+RAID -1 --> Mirroring
+RAID 0+1 --> First Striped, then Replicated
+( Used for NN upwala )
+JBOD - just bunch of other disks (NormalHDD)
+( Used for DN )
+Network-NIC-Network Interface Cord
+Bandwidth--1 GBps
+Stotage (HDD)->MagneticDisks
+             ->SSD
+             ->TapeDrive(Old)
+Storage corrupted ->Destroyed
+ITIL
+CMMI level 0 to 5
+________________________________
+Class 03
+
+Operating Systems
+Flavours of Linux:
+>RedHat-CentOS
+>Suse
+>Debian-Ubuntu
+POSIX Compliance (PortableO.S)
+1> Manual Partition
+/ -Root Partition
+  -O.S stored
+/home -Users home directory
+Swap -->2*RAM
+2> LogicalVolumeManagement (LVM)
+SizeOfPartition-DynamicallyAllocated
+Proxy-SecurityFirewall
+_______________________________________
+Class 04
+
+P.O.S.T
+PCI
+NB (NorthBridge)
+FSB
+RAM
+CPU
+GPU
+SB (SouthBridge)
+BSB
+PCI
+BIOS (CMOS)
+Contoller
+-usb
+-SATA
+-ATA
+-RAID
+-eth0
+-eth1
+0-15 -> Interrupt Requests
+14/15 ->MBR
+=( Master Boot Record/Loader )
+=first sector of HDD
+=512 bytes
+Bootloader-[Index,Length,Size]
+Bootloader->locate the kernel->load->RAM
+RAM=[Kernel|initramfs]
+What happens when you power on the system?
+Explain P.O.S.T
+Explain the Booting process.
+What is MBR?
+Where is MBR located?
+Size of MBR?
+What is Bootloader?
+Purpose of bootloader? & many more
+
+/ -Root
+/root -RootUsersHomeDirectory
+/bin -binaries(Applications)
+/boot -booting information
+/dev -BlockDevices(HDD)
+/etc -configurations
+/home -HomeDirectories-ofUsers
+/lib -libraries(SupportingPackages)
+/media -Permanent Mount
+/mnt -Temporary Mount
+/opt -OptionalPackages
+/sbin -Superusers binaries
+/srv -Site Specific Data
+/tmp -temporary data
+/usr -Multi-user app/data
+/var -Variable
+--> /cache
+    /log
+    /spool (queue)
+    /tmp (variable sized temporary data)
+__________________________________________
+Class 05
+
+Command line operations:
+user@hostname
+ctrl+alt+T =Terminal
+ctrl+L =clears screen
+~ =rootLogin
+$ =Soldier Login
+$ command =-option argument
+----------------------------
+$pwd -present working directory
+$whatis -for queries/info
+$which
+$whereis ->files(all)
+$locate ->regular expression/pattern
+(creates its own db and searches)
+$sudo updatedb (in not working)
+{tab==>auto-complete}
+-----------------------------
+$cat filename (read)
+$cat > filename (create&edit file)
+ctrl+D ==> save&exit
+$cat >> filename (Append)
+$tac (most recent information)
+$tail (prints last few lines of file)
+$man (manual)
+q -quit man pages
+$tail -n 4 filename
+(will print last 4 lines)
+$head (top few lines, oldest entries)
+$touch (creating empty file)
+#Flat files => no extention
+(flat files run on linux)
+$file <filename> (shows type of file)
+-------------------------------
+$mkdir (make/create directory)
+$cd (change directory)
+(also brings back to home directory)
+$cd.. (go back one step)
+--------------------------------------
+##CLI text editors##
+$nano (for debian)
+$vi (for redhat)
+$emacs
+$nano <filename>
+^=>ctrl  ^O=>ctrl+O
+to save/write/write-out/commit
+^X=>ctrl+X (to exit)
+$rmdir (removing/deleting a directory)
+$rm (delete files/directories)
+$rm <filename>
+$rm -r (recurssively)
+    -i (interactively)
+$rm -rf <dir_name>
+( -f = forcefully)
+_________________________________________
+Class 06
+
+$who (who is logged on)
+$who -a (detailed info)
+$whoami (which user you're logged in as)
+to change runlevel
+ctrl+alt+F1(...F7)
+-----------------------------------------
+##AddingUser##
+$adduser <username>
+##SwitchUser##
+$su <username>
+$su (switch directly to root user)
+##ChangePassword##
+$passwd <username>
+##SettingPasswordForRoot##
+$sudo passwd root
+exit --> exit from root user
+$sudo <command> (execute command as root user)
+$sudo adduser <username>
+##Group-collection of users##
+## /etc/skel =>skeleton ##
+$sudo visudo (opens sudo file)
+##AssigningSudoPrivilegeToUser##
+$sudo adduser <username> sudo
+##AddGroupToSystem##
+$sudo addgroup <groupname>
+##AddingNewUserToExistingGroup##
+$sudo adduser <uname> --ingroup <gname>
+##AddingExistingUserToExistingGroup##
+$sudo adduser <uname> <gname>
+$sudo addgroup <uname> <gname>
+$id <username> (to get id of username)
+##ToChangePrimaryGroup##
+$sudo usermod <uname> -g <gname>
+$sudo usermod <uname> --gid <gid>
+##Delete a User##
+$sudo deluser <uname>
+$sudo delgroup <gname>
+--------------------------------------
+### File Ownership ###
+$ls -l  (long list)
+##ChangingUserOwnership##
+$sudo chown <uname> file/directory
+##ChangingGroupOwnership##
+$sudo chgrp <gname> file/directory
+##ChangeBothAtTheSameTime##
+$sudo chown <uname>:<gname> file/directory
+---------------------------------------
+### File Permissions ###
+User Owner(u),
+Group Owner(g),
+Other (o).
+Read(r) Write(w) execute(x)
+  4       2         1  
+changing permissions => chmod
+# using letters #
+$sudo chmod o+r filename
+$sudo chmod u-w filename
+$sudo chmod u+w,o+x filename
+$sudo chmod u-x,g+x filename
+_________________________________________
+Class 07
+
+Read(r) Write(w) execute(x)
+  4       2         1  
+eg: rwx -7
+    r-x -5
+    -w- -2
+$sudo chmod 762 filename
+           (ugo)
+$sudo chmod 655 filename
+Users are on => /etc/passwd
+Human user's =>end with=> /bin/bash
+System user's =>end with=>all others
+/bin/bash ==> shell
+BASH=Bourne-Again Shell
+$grep <pattern/name> (searches like a regular expression)
+| => pipe symbol
+$cmd1 | cmd2
+$cat passwd | grep /bin/bash
+/etc/group =>for groups
+human groups=> 1000-9999
+               ( 4 digit)
+all other non-4Digit are system groups
+passwords=> /etc/shadow (for security)
+$sudo nano /etc/shadow
+
